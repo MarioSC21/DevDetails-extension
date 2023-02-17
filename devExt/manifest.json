@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "My Extension",
+  "version": "1.0",
+  "description": "Se encarga de obtner el iframe y abrirlo en una nueva pestaña",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "background.service_worker": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://cursos.devtalles.com/courses/take/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "externally_connectable": {
+    "matches": ["https://embed-ssl.wistia.com/deliveries/*"]
+  }
+}

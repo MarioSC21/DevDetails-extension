@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "My Extension3",
+  "version": "1.0",
+  "description": "Se encarga de descargar videos",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "background.service_worker": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://embed-ssl.wistia.com/deliveries/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

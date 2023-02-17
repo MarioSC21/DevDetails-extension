@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "My Extension2",
+  "version": "1.0",
+  "description": "Se encargar de obtner el link del video ya abrirlo en una nueva pestaña",
+  "permissions": [
+    "tabs"
+  ],
+  "background.service_worker": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://platform.thinkific.com/videoproxy/v1/play/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
